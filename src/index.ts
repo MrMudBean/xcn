@@ -104,3 +104,5 @@ export function xcn<T extends EnClassNameItem[]>(
     [K in keyof T]: EnTypeofClassNameItem<T[K]>;
   }>;
 }
+
+export default xcn;

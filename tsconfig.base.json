@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "rootDir": ".",
     "jsx": "preserve",
     "strict": true,
     "target": "ESNext",

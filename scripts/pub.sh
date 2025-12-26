@@ -51,6 +51,7 @@ build () {
 
 build 
 
-node scripts/change-name.js
 
-build 
+# 发布到 mix-cn
+# node scripts/change-name.js
+# build 
