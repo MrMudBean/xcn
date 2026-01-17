@@ -2,7 +2,7 @@ import {
   pathJoin,
   readFileToJsonSync,
   getDirectoryBy,
-  writeJsonFile,
+  writeJsonFileSync,
 } from 'a-node-tools';
 
 // 原始 package.json 内容
@@ -41,10 +41,12 @@ packageJson = {
   license: 'MIT',
   files: [cjsPrefix, esPrefix, 'LICENSE', 'README.md'],
   exports: {
-    import: `./${esPrefix}/index.js`,
-    default: `./${esPrefix}/index.js`,
-    require: `./${cjsPrefix}/index.js`,
-    types: `./${dtsPrefix}/index.d.ts`,
+    '.': {
+      import: `./${esPrefix}/index.js`,
+      default: `./${esPrefix}/index.js`,
+      require: `./${cjsPrefix}/index.js`,
+      types: `./${dtsPrefix}/index.d.ts`,
+    },
   },
   keywords: ['xcn', '混合 className', '拼接字符串'],
   homepage: 'https://earthnut.dev/npm/xcn',
@@ -58,14 +60,14 @@ packageJson = {
     url: 'git+https://github.com/MrMudBean/xcn.git',
   },
   browserslist: ['last 2 versions not ie <= 11'],
-  engines: {
-    node: '>=18.0.0',
-  },
+  // engines: {
+  //   node: '>=18.0.0',
+  // },
 };
 
 {
   // 整理打包后 package.json 文件路径
   const distPackagePath = pathJoin(distParentPath, './dist/package.json');
   // 写入新的 packages.json 文件
-  writeJsonFile(distPackagePath, packageJson);
+  writeJsonFileSync(distPackagePath, packageJson);
 }
