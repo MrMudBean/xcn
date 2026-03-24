@@ -18,7 +18,7 @@ const dependencies = packageJson.dependencies;
 ].forEach(key => delete packageJson[key]);
 const esPrefix = 'es'; // es 前缀
 const cjsPrefix = 'cjs'; // cjs 前缀
-const dtsPrefix = 'es/src'; // 类型文件的前缀
+const dtsPrefix = 'es/types/src'; // 类型文件的前缀
 // 查看当前打包 dist 文件路径
 const distParentPath = getDirectoryBy('dist', 'directory');
 
@@ -30,7 +30,7 @@ packageJson = {
   author: {
     name: '泥豆君',
     email: 'Mr.MudBean@outlook.com',
-    url: 'https://earthnut.dev',
+    url: 'https://lmssee.com',
   },
   publishConfig: {
     access: 'public',
@@ -49,7 +49,7 @@ packageJson = {
     },
   },
   keywords: ['xcn', '混合 className', '拼接字符串'],
-  homepage: 'https://earthnut.dev/npm/xcn',
+  homepage: 'https://lmssee.com/npm/xcn',
   dependencies,
   bugs: {
     url: 'https://github.com/MrMudBean/xcn/issues',

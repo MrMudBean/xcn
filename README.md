@@ -23,7 +23,3 @@ import { xcn } from 'xcn';
 
 'a b d'
 ```
-
-## 文档地址
-
-参看 [https://earthnut.dev/npm/xcn/](https://earthnut.dev/npm/xcn/)

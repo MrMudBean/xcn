@@ -46,11 +46,39 @@ export type EnXcn<T> = T extends [infer U, ...infer V]
   : '';
 
 /**
+ * 以空格为分隔符拼接字符串
+ * @param classNameList 待拼接的字符串
+ * @return string 拼接后的字符串
+ * @example
+ * ```ts
+ * import { xcn } from 'xcn';
  *
- * 合并 class
+ * // 以纯字符串为参数
+ * // 'a b c'
+ * xcn('a', 'b', 'c');
  *
- * merge class name
+ * // 剔除多余的空格
+ * // 'a b c'
+ * xcn('a ', '   b ', 'c ');
  *
+ * // 参数可以是字符串数组
+ * // 'a b c d e'
+ * xcn(['a', 'b'], ['c', 'd'], 'e');
+ *
+ * // 参数可为可执行返回值为字符串的或字符串数组的函数
+ * // 'a b c d e f g'
+ * xcn('a', '  b  ', ['c', 'd'] , ()=> 'e', () => ['f', 'g']);
+ *
+ * // 参数可为简单对象，以键入参，以值为断
+ * // 'a b c e g'
+ * xcn('a', 'b', {
+ *  c: true,
+ *  d: false,
+ *  e: !0,
+ *  f: !1,
+ *  g: 1 > 0
+ * });
+ * ```
  */
 export function xcn<T extends EnClassNameItem[]>(
   ...classNameList: T

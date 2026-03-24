@@ -3,13 +3,7 @@
   "compilerOptions": {
     "emitDeclarationOnly": true,
     "declaration": true,
-    "declarationDir": "dist/es"
+    "declarationDir": "dist/es/types"
   },
-  "exclude": [
-    "node_modules",
-    "test",
-    "dist",
-    "eg",
-    ".eg"
-  ]
+  "exclude": ["node_modules", "test", "dist", "eg", ".eg"]
 }
