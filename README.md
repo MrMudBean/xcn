@@ -23,3 +23,9 @@ import { xcn } from 'xcn';
 
 'a b d'
 ```
+
+## 状态
+
+此软件包是 `@mudbean` 生态系统的一部分。
+它使用严格的 TypeScript 编写，并通过 Rollup 构建进行验证。
+虽然单元测试较少，但 API 稳定，并在生产环境中大量使用。

@@ -3,7 +3,7 @@ import {
   pathJoin,
   readFileToJsonSync,
   getDirectoryBy,
-  writeJsonFile,
+  writeJsonFileSync,
 } from 'a-node-tools';
 
 let packageJson = readFileToJsonSync('./dist/package.json');
@@ -15,5 +15,5 @@ packageJson.name = 'mix-cn';
 
   const distPackagePath = pathJoin(distPath, './dist/package.json');
 
-  writeJsonFile(distPackagePath, packageJson);
+  writeJsonFileSync(distPackagePath, packageJson);
 }

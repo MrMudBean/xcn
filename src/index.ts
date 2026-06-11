@@ -5,20 +5,20 @@ import {
   isString,
   isTrue,
   isUndefined,
-} from 'a-type-of-js';
+} from '@mudbean/is';
 
 /**
  * 参数的数据类型
  */
-export type EnClassNameItem =
+export type ClassNameItem =
   | null
   | number
   | string
   | boolean
   | undefined
   | (() => string)
-  | (() => EnClassNameItem[])
-  | EnClassNameItem[]
+  | (() => ClassNameItem[])
+  | ClassNameItem[]
   | Record<string, boolean | undefined>;
 
 /**
@@ -26,12 +26,12 @@ export type EnClassNameItem =
  *
  * 字符串为具体的字符串值而非 string
  */
-export type EnTypeofClassNameItem<T> = T extends null | boolean | undefined
+export type TypeofClassNameItem<T> = T extends null | boolean | undefined
   ? ''
   : T extends readonly [unknown, infer U]
-    ? EnTypeofClassNameItem<U> | ''
+    ? TypeofClassNameItem<U> | ''
     : T extends readonly [unknown, infer U, infer V]
-      ? EnTypeofClassNameItem<U> | EnTypeofClassNameItem<V>
+      ? TypeofClassNameItem<U> | TypeofClassNameItem<V>
       : T extends Record<string, boolean | undefined>
         ? keyof T | ''
         : T extends () => string
@@ -41,14 +41,14 @@ export type EnTypeofClassNameItem<T> = T extends null | boolean | undefined
 /**
  * 递归判断当前返回的数据类型
  */
-export type EnXcn<T> = T extends [infer U, ...infer V]
-  ? `${U & string}  ${EnXcn<V>}`
+export type XCN<T> = T extends [infer U, ...infer V]
+  ? `${U & string}  ${XCN<V>}`
   : '';
 
 /**
- * 以空格为分隔符拼接字符串
+ * # 以空格为分隔符拼接字符串
  * @param classNameList 待拼接的字符串
- * @return string 拼接后的字符串
+ * @returns string 拼接后的字符串
  * @example
  * ```ts
  * import { xcn } from 'xcn';
@@ -80,9 +80,9 @@ export type EnXcn<T> = T extends [infer U, ...infer V]
  * });
  * ```
  */
-export function xcn<T extends EnClassNameItem[]>(
+export function xcn<T extends ClassNameItem[]>(
   ...classNameList: T
-): EnXcn<{ [K in keyof T]: EnTypeofClassNameItem<T[K]> }> {
+): XCN<{ [K in keyof T]: TypeofClassNameItem<T[K]> }> {
   /**  临时  */
   const template: string[] = [];
   /**  移除空白  */
@@ -128,8 +128,8 @@ export function xcn<T extends EnClassNameItem[]>(
     Array.from(new Set(template)).filter(Boolean).join(' '),
   );
 
-  return (result ?? undefined) as unknown as EnXcn<{
-    [K in keyof T]: EnTypeofClassNameItem<T[K]>;
+  return (result ?? undefined) as unknown as XCN<{
+    [K in keyof T]: TypeofClassNameItem<T[K]>;
   }>;
 }
 

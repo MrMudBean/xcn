@@ -33,6 +33,7 @@ export default {
       targets: [
         { src: 'README.md', dest: 'dist' },
         { src: 'LICENSE', dest: 'dist' },
+        { src: 'CHANGELOG.md', dest: 'dist' },
       ],
     }),
   ],

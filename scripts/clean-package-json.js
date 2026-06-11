@@ -18,7 +18,7 @@ const dependencies = packageJson.dependencies;
 ].forEach(key => delete packageJson[key]);
 const esPrefix = 'es'; // es 前缀
 const cjsPrefix = 'cjs'; // cjs 前缀
-const dtsPrefix = 'es/types/src'; // 类型文件的前缀
+const dtsPrefix = 'es'; // 类型文件的前缀
 // 查看当前打包 dist 文件路径
 const distParentPath = getDirectoryBy('dist', 'directory');
 
@@ -30,7 +30,7 @@ packageJson = {
   author: {
     name: '泥豆君',
     email: 'Mr.MudBean@outlook.com',
-    url: 'https://lmssee.com',
+    url: 'https://mudbean.cn',
   },
   publishConfig: {
     access: 'public',
@@ -39,7 +39,7 @@ packageJson = {
   description: '一个用于字符串拼接的小工具，多用于 class name 的拼接',
   sideEffects: false, // 核心：开启 Tree Shaking
   license: 'MIT',
-  files: [cjsPrefix, esPrefix, 'LICENSE', 'README.md'],
+  files: [cjsPrefix, esPrefix, 'LICENSE', 'README.md', 'CHANGELOG.md'],
   exports: {
     '.': {
       import: `./${esPrefix}/index.js`,
@@ -48,8 +48,8 @@ packageJson = {
       types: `./${dtsPrefix}/index.d.ts`,
     },
   },
-  keywords: ['xcn', '混合 className', '拼接字符串'],
-  homepage: 'https://lmssee.com/npm/xcn',
+  keywords: ['xcn', '混合 className', '拼接字符串', 'mudbean'],
+  homepage: 'https://npm.lmssee.com/xcn',
   dependencies,
   bugs: {
     url: 'https://github.com/MrMudBean/xcn/issues',
