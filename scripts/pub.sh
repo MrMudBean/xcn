@@ -18,7 +18,7 @@ log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
 # 1. 版本校验
 log_info "检查版本...."
 
-if ! TAG=$(npx "${CHECK_VERSION}" c=. 2>&1); then
+if ! TAG=$(npx --yes "${CHECK_VERSION}" c=. 2>&1); then
     log_error "未通过版本校验：${TAG}"
     exit 1
 fi
