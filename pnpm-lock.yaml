@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@mudbean/is':
-        specifier: ^2.0.2
-        version: 2.0.2
+        specifier: 2.0.5
+        version: 2.0.5
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
@@ -181,8 +181,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@mudbean/is@2.0.2':
-    resolution: {integrity: sha512-tV3o9gdJ8P+TMHZJ1VhS98Y4pafVOhdqeYCf5/Oe4vXrZCC13/GQvrYAlFPVZQsfJ3NRVmeV9D9KNi6lOF77QA==}
+  '@mudbean/is@2.0.5':
+    resolution: {integrity: sha512-vY5OVZGAK103y2eGf3NNOHZtk6SGon113YD/5xXr+XnMdNEU6g7Il9w6Rt0P+3BI9T9l6DSuOEmlAuyDE0kekw==}
     engines: {node: '>=14.0.0'}
 
   '@nodelib/fs.scandir@2.1.5':
@@ -1201,7 +1201,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@mudbean/is@2.0.2': {}
+  '@mudbean/is@2.0.5': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

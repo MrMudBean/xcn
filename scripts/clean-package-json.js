@@ -32,20 +32,20 @@ packageJson = {
     email: 'Mr.MudBean@outlook.com',
     url: 'https://mudbean.cn',
   },
-  publishConfig: {
-    access: 'public',
-    registry: 'https://registry.npmjs.org/',
-  },
   description: '一个用于字符串拼接的小工具，多用于 class name 的拼接',
   sideEffects: false, // 核心：开启 Tree Shaking
   license: 'MIT',
   files: [cjsPrefix, esPrefix, 'LICENSE', 'README.md', 'CHANGELOG.md'],
   exports: {
     '.': {
-      import: `./${esPrefix}/index.js`,
-      default: `./${esPrefix}/index.js`,
-      require: `./${cjsPrefix}/index.js`,
-      types: `./${dtsPrefix}/index.d.ts`,
+      import: {
+        default: `./${esPrefix}/index.js`,
+        types: `./${dtsPrefix}/index.d.ts`,
+      },
+      require: {
+        default: `./${cjsPrefix}/index.js`,
+        types: `./${dtsPrefix}/index.d.ts`,
+      },
     },
   },
   keywords: ['xcn', '混合 className', '拼接字符串', 'mudbean'],
@@ -54,6 +54,10 @@ packageJson = {
   bugs: {
     url: 'https://github.com/MrMudBean/xcn/issues',
     email: 'Mr.MudBean@outlook.com',
+  },
+  publishConfig: {
+    access: 'public',
+    registry: 'https://registry.npmjs.org/',
   },
   repository: {
     type: 'git',
